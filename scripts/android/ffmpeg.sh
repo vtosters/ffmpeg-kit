@@ -438,7 +438,7 @@ fi
   --enable-optimizations \
   ${BUILD_LIBRARY_OPTIONS} \
   --enable-pthreads \
-  --enable-v4l2-m2m \
+  --disable-v4l2-m2m \
   --disable-outdev=fbdev \
   --disable-indev=fbdev \
   ${SIZE_OPTIONS} \
@@ -475,7 +475,7 @@ fi
   --disable-swscale \
   --enable-decoder=mp3 \
   --enable-small \
-  --enable-demuxer=mpegts,mp3 \
+  --enable-demuxer=mpegts \
   --enable-muxer=mp3,mpegts\
   --enable-protocol=file \
   --enable-parser=mp3 \
