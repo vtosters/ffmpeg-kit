@@ -76,7 +76,6 @@
 #include "libavutil/timecode.h"
 #include "libavutil/timestamp.h"
 #include "libavdevice/avdevice.h"
-#include "libswscale/swscale.h"
 #include "libswresample/swresample.h"
 #include "fftools_cmdutils.h"
 #include "fftools_opt_common.h"
@@ -3517,39 +3516,38 @@ static void ffprobe_show_program_version(WriterContext *w)
     writer_print_section_header(w, SECTION_ID_PROGRAM_VERSION);
     print_str("version", FFMPEG_VERSION);
     print_fmt("copyright", "Copyright (c) %d-%d the FFmpeg developers",
-              program_birth_year, CONFIG_THIS_YEAR);
-    print_str("compiler_ident", CC_IDENT);
-    print_str("configuration", FFMPEG_CONFIGURATION);
+              program_birth_year, 2022);
+    // print_str("compiler_ident", CC_IDENT);
+    // print_str("configuration", FFMPEG_CONFIGURATION);
     writer_print_section_footer(w);
 
     av_bprint_finalize(&pbuf, NULL);
 }
 
-#define SHOW_LIB_VERSION(libname, LIBNAME)                              \
-    do {                                                                \
-        if (CONFIG_##LIBNAME) {                                         \
-            unsigned int version = libname##_version();                 \
-            writer_print_section_header(w, SECTION_ID_LIBRARY_VERSION); \
-            print_str("name",    "lib" #libname);                       \
-            print_int("major",   LIB##LIBNAME##_VERSION_MAJOR);         \
-            print_int("minor",   LIB##LIBNAME##_VERSION_MINOR);         \
-            print_int("micro",   LIB##LIBNAME##_VERSION_MICRO);         \
-            print_int("version", version);                              \
-            print_str("ident",   LIB##LIBNAME##_IDENT);                 \
-            writer_print_section_footer(w);                             \
-        }                                                               \
-    } while (0)
+// #define SHOW_LIB_VERSION(libname, LIBNAME)                              \
+//     do {                                                                \
+//         if (CONFIG_##LIBNAME) {                                         \
+//             unsigned int version = libname##_version();                 \
+//             writer_print_section_header(w, SECTION_ID_LIBRARY_VERSION); \
+//             print_str("name",    "lib" #libname);                       \
+//             print_int("major",   LIB##LIBNAME##_VERSION_MAJOR);         \
+//             print_int("minor",   LIB##LIBNAME##_VERSION_MINOR);         \
+//             print_int("micro",   LIB##LIBNAME##_VERSION_MICRO);         \
+//             print_int("version", version);                              \
+//             print_str("ident",   LIB##LIBNAME##_IDENT);                 \
+//             writer_print_section_footer(w);                             \
+//         }                                                               \
+//     } while (0)
 
 static void ffprobe_show_library_versions(WriterContext *w)
 {
     writer_print_section_header(w, SECTION_ID_LIBRARY_VERSIONS);
-    SHOW_LIB_VERSION(avutil,     AVUTIL);
-    SHOW_LIB_VERSION(avcodec,    AVCODEC);
-    SHOW_LIB_VERSION(avformat,   AVFORMAT);
-    SHOW_LIB_VERSION(avdevice,   AVDEVICE);
-    SHOW_LIB_VERSION(avfilter,   AVFILTER);
-    SHOW_LIB_VERSION(swscale,    SWSCALE);
-    SHOW_LIB_VERSION(swresample, SWRESAMPLE);
+    // SHOW_LIB_VERSION(avutil,     AVUTIL);
+    // SHOW_LIB_VERSION(avcodec,    AVCODEC);
+    // SHOW_LIB_VERSION(avformat,   AVFORMAT);
+    // SHOW_LIB_VERSION(avdevice,   AVDEVICE);
+    // SHOW_LIB_VERSION(avfilter,   AVFILTER);
+    // SHOW_LIB_VERSION(swresample, SWRESAMPLE);
     writer_print_section_footer(w);
 }
 

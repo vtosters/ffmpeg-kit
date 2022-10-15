@@ -55,11 +55,3 @@ LOCAL_MODULE := libswresample_neon
 LOCAL_MODULE_FILENAME := $(LOCAL_MODULE)
 LOCAL_SRC_FILES := libswresample_neon.so
 include $(PREBUILT_SHARED_LIBRARY)
-
-include $(CLEAR_VARS)
-LOCAL_ARM_MODE := $(MY_ARM_MODE)
-LOCAL_ARM_NEON := ${MY_ARM_NEON}
-LOCAL_MODULE := libswscale_neon
-LOCAL_MODULE_FILENAME := $(LOCAL_MODULE)
-LOCAL_SRC_FILES := libswscale_neon.so
-include $(PREBUILT_SHARED_LIBRARY)

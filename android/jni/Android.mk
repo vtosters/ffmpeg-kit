@@ -90,7 +90,7 @@ ifeq ($(MY_ARMV7_NEON), true)
     LOCAL_SRC_FILES := $(MY_SRC_FILES)
     LOCAL_CFLAGS := $(MY_CFLAGS)
     LOCAL_LDLIBS := $(MY_LDLIBS)
-    LOCAL_SHARED_LIBRARIES := libavcodec_neon libavfilter_neon libswscale_neon libavformat_neon libavutil_neon libswresample_neon libavdevice_neon
+    LOCAL_SHARED_LIBRARIES := libavcodec_neon libavfilter_neon libavformat_neon libavutil_neon libswresample_neon libavdevice_neon
     ifeq ($(APP_STL), c++_shared)
         LOCAL_SHARED_LIBRARIES += c++_shared # otherwise NDK will not add the library for packaging
     endif
@@ -112,7 +112,7 @@ ifeq ($(MY_BUILD_GENERIC_FFMPEG_KIT), true)
     LOCAL_SRC_FILES := $(MY_SRC_FILES)
     LOCAL_CFLAGS := $(MY_CFLAGS)
     LOCAL_LDLIBS := $(MY_LDLIBS)
-    LOCAL_SHARED_LIBRARIES := libavfilter libavformat libavcodec libavutil libswresample libavdevice libswscale
+    LOCAL_SHARED_LIBRARIES := libavfilter libavformat libavcodec libavutil libswresample libavdevice
     ifeq ($(APP_STL), c++_shared)
         LOCAL_SHARED_LIBRARIES += c++_shared # otherwise NDK will not add the library for packaging
     endif

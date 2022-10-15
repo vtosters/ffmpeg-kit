@@ -72,9 +72,6 @@
 #include "libavfilter/avfilter.h"
 #include "libavfilter/version.h"
 
-#include "libswscale/swscale.h"
-#include "libswscale/version.h"
-
 #include "libswresample/swresample.h"
 #include "libswresample/version.h"
 
@@ -203,13 +200,13 @@ __thread int warned_cfg = 0;
 
 static void print_all_libs_info(int flags, int level)
 {
-    PRINT_LIB_INFO(avutil,     AVUTIL,     flags, level);
-    PRINT_LIB_INFO(avcodec,    AVCODEC,    flags, level);
-    PRINT_LIB_INFO(avformat,   AVFORMAT,   flags, level);
-    PRINT_LIB_INFO(avdevice,   AVDEVICE,   flags, level);
-    PRINT_LIB_INFO(avfilter,   AVFILTER,   flags, level);
-    PRINT_LIB_INFO(swscale,    SWSCALE,    flags, level);
-    PRINT_LIB_INFO(swresample, SWRESAMPLE, flags, level);
+    // PRINT_LIB_INFO(avutil,     AVUTIL,     flags, level);
+    // PRINT_LIB_INFO(avcodec,    AVCODEC,    flags, level);
+    // PRINT_LIB_INFO(avformat,   AVFORMAT,   flags, level);
+    // PRINT_LIB_INFO(avdevice,   AVDEVICE,   flags, level);
+    // PRINT_LIB_INFO(avfilter,   AVFILTER,   flags, level);
+    // PRINT_LIB_INFO(swscale,    SWSCALE,    flags, level);
+    // PRINT_LIB_INFO(swresample, SWRESAMPLE, flags, level);
 }
 
 static void print_program_info(int flags, int level)
@@ -219,17 +216,17 @@ static void print_program_info(int flags, int level)
     av_log(NULL, level, "%s version " FFMPEG_VERSION, program_name);
     if (flags & SHOW_COPYRIGHT)
         av_log(NULL, level, " Copyright (c) %d-%d the FFmpeg developers",
-               program_birth_year, CONFIG_THIS_YEAR);
+               program_birth_year, 2022);
     av_log(NULL, level, "\n");
     av_log(NULL, level, "%sbuilt with %s\n", indent, CC_IDENT);
 
-    av_log(NULL, level, "%sconfiguration: " FFMPEG_CONFIGURATION "\n", indent);
+    // av_log(NULL, level, "%sconfiguration: " FFMPEG_CONFIGURATION "\n", indent);
 }
 
 static void print_buildconf(int flags, int level)
 {
     const char *indent = flags & INDENT ? "  " : "";
-    char str[] = { FFMPEG_CONFIGURATION };
+    char str[] = { "FFMPEG_CONFIGURATION" };
     char *conflist, *remove_tilde, *splitconf;
 
     // Change all the ' --' strings to '~--' so that
