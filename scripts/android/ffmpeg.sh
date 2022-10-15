@@ -436,7 +436,6 @@ fi
   --enable-pic \
   --enable-jni \
   --enable-optimizations \
-  --enable-swscale \
   ${BUILD_LIBRARY_OPTIONS} \
   --enable-pthreads \
   --enable-v4l2-m2m \
@@ -471,6 +470,15 @@ fi
   --disable-nvenc \
   --disable-vaapi \
   --disable-vdpau \
+  --disable-everything \
+  --disable-network \
+  --disable-swscale \
+  --enable-decoder=mp3 \
+  --enable-small \
+  --enable-demuxer=mpegts,mp3 \
+  --enable-muxer=mp3,mpegts\
+  --enable-protocol=file \
+  --enable-parser=mp3 \
   ${CONFIGURE_POSTFIX} 1>>"${BASEDIR}"/build.log 2>&1
 
 if [[ $? -ne 0 ]]; then
