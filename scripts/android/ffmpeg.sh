@@ -475,7 +475,7 @@ fi
   --disable-swscale \
   --enable-decoder=mp3 \
   --enable-small \
-  --enable-demuxer=mpegts \
+  --enable-demuxer=mpegts,mp3 \
   --enable-muxer=mp3,mpegts\
   --enable-protocol=file \
   --enable-parser=mp3 \
